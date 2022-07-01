@@ -1,6 +1,18 @@
 const handlerElephants = require('../src/handlerElephants');
 
 describe('Testes da função HandlerElephants', () => {
+  it('Se nada for colocado, retorne undefined', () => {
+    expect(handlerElephants()).toBeUndefined();
+  });
+
+  it('Se a string for um valor que não existe', () => {
+    expect(handlerElephants('arroz Doce')).toBeNull();
+  });
+
+  it('Se o paramentro não for uma string', () => {
+    expect(handlerElephants([])).toBe('Parâmetro inválido, é necessário uma string');
+  });
+
   it('retorna a quantidade de elefantes', () => {
     const actual = handlerElephants('count');
     const expected = 4;
