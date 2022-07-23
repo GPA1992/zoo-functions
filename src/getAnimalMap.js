@@ -10,23 +10,23 @@ locations.forEach((l) => {
   speciesByLocation[l] = getAnimalSpecies(l);
 });
 // --- com a opção `includeNames: true` especificada.
-const nameBySpeciesLocation = locations.reduce((o, key) => ({ ...o,
+const nameBySpeciesLocation = locations.reduce((obj, key) => ({ ...obj,
   [key]: speciesByLocation[key].map((i) => ({
     [i]: animals.find((x) => x.name === i).residents.map((z) => z.name),
   })) }), {});
 // --- com a opção `includeNames: true` e sorted: true especificada.
-const sortednameBySpeciesLocation = locations.reduce((o, key) => ({ ...o,
+const sortednameBySpeciesLocation = locations.reduce((obj, key) => ({ ...obj,
   [key]: speciesByLocation[key].map((i) => ({
     [i]: animals.find((x) => x.name === i).residents.map((z) => z.name).sort(),
   })) }), {});
 // --- com a opção sex especificada.
-const nameBySex = (sex) => locations.reduce((o, key) => ({ ...o,
+const nameBySex = (sex) => locations.reduce((obj, key) => ({ ...obj,
   [key]: speciesByLocation[key].map((i) => ({
     [i]: animals.find((x) => x.name === i)
       .residents.filter((m) => m.sex === sex).map((z) => z.name),
   })) }), {});
 // --- com a opção sex e sorted especificada.
-const nameBySexSorted = (sex) => locations.reduce((o, key) => ({ ...o,
+const nameBySexSorted = (sex) => locations.reduce((obj, key) => ({ ...obj,
   [key]: speciesByLocation[key].map((i) => ({
     [i]: animals.find((x) => x.name === i)
       .residents.filter((m) => m.sex === sex).map((z) => z.name).sort(),
